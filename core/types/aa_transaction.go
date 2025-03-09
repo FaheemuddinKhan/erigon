@@ -567,7 +567,7 @@ func (tx *AccountAbstractionTransaction) PreTransactionGasCost() (uint64, error)
 	}
 
 	// data should have tx.Authorizations, tx.DeployerData, tx.ExecutionData, tx.PaymasterData
-	data := make([]byte, len(authorizationsBytes.Bytes())+len(tx.DeployerData)+len(tx.ExecutionData)+len(tx.PaymasterData))
+	var data []byte
 	data = append(data, authorizationsBytes.Bytes()...)
 	data = append(data, tx.DeployerData...)
 	data = append(data, tx.ExecutionData...)

@@ -54,7 +54,7 @@ func MerkleizeVector(elements [][32]byte, length uint64) ([32]byte, error) {
 // MerkleizeVector uses our optimized routine to hash a list of 32-byte
 // elements.
 func MerkleizeVectorFlat(in []byte, limit uint64) ([32]byte, error) {
-	elements := make([]byte, len(in))
+	elements := make([]byte, 0)
 	copy(elements, in)
 	for i := uint8(0); i < GetDepth(limit); i++ {
 		// Sequential
